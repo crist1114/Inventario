@@ -9,7 +9,7 @@ package inventario;
  *
  * @author Cristian
  */
-public class Producto {
+public class Producto implements Comparable<Producto>{
     private String nombre;
     private String tipo;
     private int unidadesDisp;
@@ -23,7 +23,28 @@ public class Producto {
         this.nNuevoPedido = nNuevoPedido;
         this.precioBase = precioBase;
     }
-
+    
+    public int getPrecioFinal(){
+        if(this.getTipo().equals("Papeleria"))
+            return this.precioBase+(this.precioBase*16)/100;
+        else if(this.getTipo().equals("Supermercado"))
+            return this.precioBase+(this.precioBase*4)/100;
+        else
+            return this.precioBase+(this.precioBase*12)/100;
+    }
+    
+    public boolean venderUnidades(int cant){
+        if(this.unidadesDisp-cant >= 0){
+            this.unidadesDisp-=cant;
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean pedir(){
+        return this.unidadesDisp<=this.nNuevoPedido;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -41,7 +62,7 @@ public class Producto {
         Producto o = (Producto)otro;
         if(o.nombre == this.nombre)
             return true;
-        return o.getNombre() != null && o.getTipo().equals(this.getNombre());
+        return o.getNombre() != null && o.getNombre().equals(this.getNombre());
     }
     
     public void setNombre(String nombre) {
@@ -78,6 +99,11 @@ public class Producto {
 
     public void setPrecioBase(int precioBase) {
         this.precioBase = precioBase;
+    }
+
+    @Override
+    public int compareTo(Producto o) {
+        return nombre.compareTo(o.nombre);
     }
     
     
