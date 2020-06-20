@@ -28,6 +28,22 @@ public class Producto {
         return nombre;
     }
 
+    @Override
+    public int hashCode(){
+        return this.nombre.hashCode();
+    }
+    ///UTILIZO EL HASHCODE PARA SABER POR QUE PROPIEDAD LO VOY A COMPARAR
+    //EL EQUALS NO VA A PERMITIR QUE SE AGREGUEN DUPLICADOS AL SETHASH
+    @Override
+    public boolean equals(Object otro){
+        if(otro.getClass() != this.getClass())
+            return false;
+        Producto o = (Producto)otro;
+        if(o.nombre == this.nombre)
+            return true;
+        return o.getNombre() != null && o.getTipo().equals(this.getNombre());
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
