@@ -45,14 +45,10 @@ public class Inventario {
         }
     }
     
-    public boolean recargarProducto(String nombre){
+    public boolean recargarProducto(String nombre, int cant){
         Producto p = productosAgotados.get(nombre);
-        
+        p.setUnidadesDisp(p.getUnidadesDisp()+cant);
         return false;
-    }
-    
-    public void hacerPedido(String nombre){
-        
     }
     
     public SortedSet getProductosAcabados(String nombre){
@@ -93,6 +89,7 @@ public class Inventario {
         
         in.venderProducto(3, "Cafe");
         in.venderProducto(3, "Cafe");
+        
         
         Hashtable<String,Producto> l = in.productosAgotados;
         System.out.println("productos agotados");

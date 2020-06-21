@@ -15,6 +15,7 @@ public class Producto implements Comparable<Producto>{
     private int unidadesDisp;
     private int nNuevoPedido;
     private int precioBase;
+    private int unidadesVendidas;
 
     public Producto(String nombre, String tipo, int unidadesDisp, int nNuevoPedido, int precioBase) {
         this.nombre = nombre;
@@ -22,6 +23,7 @@ public class Producto implements Comparable<Producto>{
         this.unidadesDisp = unidadesDisp;
         this.nNuevoPedido = nNuevoPedido;
         this.precioBase = precioBase;
+        this.unidadesVendidas = 0;
     }
     
     public int getPrecioFinal(){
@@ -36,6 +38,7 @@ public class Producto implements Comparable<Producto>{
     public boolean venderUnidades(int cant){
         if(this.unidadesDisp-cant >= 0){
             this.unidadesDisp-=cant;
+            this.unidadesVendidas+=cant;
             return true;
         }
         return false;
@@ -63,6 +66,14 @@ public class Producto implements Comparable<Producto>{
         if(o.nombre == this.nombre)
             return true;
         return o.getNombre() != null && o.getNombre().equals(this.getNombre());
+    }
+
+    public int getUnidadesVendidas() {
+        return unidadesVendidas;
+    }
+
+    public void setUnidadesVendidas(int unidadesVendidas) {
+        this.unidadesVendidas = unidadesVendidas;
     }
     
     public void setNombre(String nombre) {
