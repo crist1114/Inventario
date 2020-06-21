@@ -1,0 +1,56 @@
+
+    
+    
+    public static void main(String[] args) {
+        Inventario in = new Inventario();
+        in.productos.add(new Producto("canela", "Supermercado",30,2,10000));
+        in.productos.add(new Producto("Harina", "drogueria",12,2,10000));
+        in.productos.add(new Producto("Cafe", "Supermercado",3,2,10000));
+        in.productos.add(new Producto("Cafe", "Supermercado",3,2,10000));
+        in.productos.add(new Producto("Cafe", "Supermercado",3,2,10000));
+        in.productos.add(new Producto("Cafe", "Supermercado",3,2,10000));
+        in.productos.add(new Producto("soya", "Supermercado",10,2,10000));
+          
+        TreeSet<Producto> t = in.productos;
+        System.out.println(t.size());
+        for (Producto p: t) {
+           System.out.println(p.getNombre()+" cantidad "+p.getUnidadesDisp()+" vendidos "+p.getUnidadesVendidas());
+        }
+        
+        in.venderProducto(3, "Cafe");
+        in.venderProducto(3, "Cafe");
+        in.venderProducto(2, "canela");
+        in.venderProducto(1, "soya");
+        in.venderProducto(1, "Harina");
+        
+        
+        Hashtable<String,Producto> l = in.productosAgotados;
+        System.out.println("productos agotados");
+        Enumeration i = l.keys();
+        while(i.hasMoreElements()){
+            System.out.println(l.get(String.valueOf(i.nextElement())).getNombre());
+        }
+        System.out.println("se recargo");
+        in.recargarProducto("Cafe", 1);
+        for (Producto p: t) {
+            System.out.println(p.getNombre()+" cantidad "+p.getUnidadesDisp()+" vendidos "+p.getUnidadesVendidas());
+        }
+        System.out.println("Ordenado");
+        //verificando orden
+        LinkedList<Producto> orden = in.ordenar();
+        for (Producto p: orden) {
+            System.out.println(p.getNombre()+" cantidad "+p.getUnidadesDisp()+" vendidos "+p.getUnidadesVendidas());
+        }
+        System.out.println("Dinero en caja "+in.dineroEnCaja);
+        
+        System.out.println("Promedio ventas "+in.promedioVentas());
+        
+//        Producto p = new Producto("Cafe", "Drogueria", 3, 1, 13000);
+//        Producto p2 = new Producto("Cafe", "Super", 3, 1, 13000);
+        
+//        s.add(p);
+//        System.out.println("precio final "+p.getPrecioFinal());
+////        s.add(p2);
+////        System.out.println("hash 1 ..: "+p.getNombre().hashCode()+"\nhash 2 ..: "+p2.getNombre().hashCode());
+////        System.out.println("Contiene: "+s.contains(p2));
+    }
