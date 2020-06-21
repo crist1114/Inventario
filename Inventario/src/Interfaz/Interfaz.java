@@ -109,6 +109,7 @@ public class Interfaz extends javax.swing.JFrame {
         String cantidad = JOptionPane.showInputDialog("Cantidad");
         int cantidadInt = Integer.parseInt(cantidad);
         i.venderProducto(cantidadInt, nombreProducto);
+        //hola
         
     }//GEN-LAST:event_btnVenderProductoActionPerformed
 
