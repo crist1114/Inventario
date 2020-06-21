@@ -114,4 +114,29 @@ public class Inventario {
            }
            return null;
     }
+
+    public TreeSet<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(TreeSet<Producto> productos) {
+        this.productos = productos;
+    }
+
+    public Hashtable<String, Producto> getProductosAgotados() {
+        return productosAgotados;
+    }
+
+    public void setProductosAgotados(Hashtable<String, Producto> productosAgotados) {
+        this.productosAgotados = productosAgotados;
+    }
+
+    public double getDineroEnCaja() {
+        return dineroEnCaja;
+    }
+
+    public void setDineroEnCaja(double dineroEnCaja) {
+        this.dineroEnCaja = dineroEnCaja;
+    }
+    
 }
