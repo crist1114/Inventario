@@ -14,10 +14,10 @@ public class Producto implements Comparable<Producto>{
     private String tipo;
     private int unidadesDisp;
     private int nNuevoPedido;
-    private int precioBase;
+    private double precioBase;
     private int unidadesVendidas;
 
-    public Producto(String nombre, String tipo, int unidadesDisp, int nNuevoPedido, int precioBase) {
+    public Producto(String nombre, String tipo, int unidadesDisp, int nNuevoPedido, double precioBase) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.unidadesDisp = unidadesDisp;
@@ -26,7 +26,7 @@ public class Producto implements Comparable<Producto>{
         this.unidadesVendidas = 0;
     }
     
-    public int getPrecioFinal(){
+    public double getPrecioFinal(){
         if(this.getTipo().equals("Papeleria"))
             return this.precioBase+(this.precioBase*16)/100;
         else if(this.getTipo().equals("Supermercado"))
@@ -104,7 +104,7 @@ public class Producto implements Comparable<Producto>{
         this.nNuevoPedido = nNuevoPedido;
     }
 
-    public int getPrecioBase() {
+    public double getPrecioBase() {
         return precioBase;
     }
 
