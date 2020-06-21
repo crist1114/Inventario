@@ -38,7 +38,7 @@ public class Inventario {
             if(vendio)
                 dineroEnCaja += (cantidad*p.getPrecioFinal());
         }
-        hacerPedido(p);//despues de vender verifico si se agoto para agregarlo a la lista
+        hacerPedido(p);
         return vendio;
     }
     
@@ -98,6 +98,22 @@ public class Inventario {
             totalVendidos+=p.getUnidadesVendidas();
         }
         return totalVendidos == 0 ? total : Math.round(total / totalVendidos);
+    }
+    
+    public String estadisticas(){
+        String rta = "****************************************************\nLos productos mas vendidos son: \n";
+        LinkedList<Producto> masVendido = this.getMasVendidos();
+        LinkedList<Producto> menosVendidos = this.getMenosVendidos();
+            for (Producto p : masVendido) {
+                rta+=p.getNombre()+"\n";
+            }
+        rta+="Los productos menos vendidos son: \n";
+            for (Producto p : menosVendidos) {
+                rta+=p.getNombre()+"\n";
+            }
+        rta+="La cantidad total de dinero obtenido por las ventas es: \n"+this.getTotalDinero()+" $\n";
+        rta+="El promedio de ventas de la tienda es: \n"+this.promedioVentas()+" $";
+        return rta+="\n*********************************************************";
     }
     
     public double getTotalDinero(){
