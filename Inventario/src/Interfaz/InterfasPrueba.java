@@ -45,7 +45,7 @@ public class InterfasPrueba extends JFrame implements ActionListener
     private JMenuItem menuItemColor1,menuItemColor2,menuItemColor3;
     private JMenuItem menuItemEscribir,menuItemAndaleMono,menuItemCoolsville,menuItemCalligraphic,
                       menuItemAmethyst;
-    private JTextArea textArea;
+    JTextArea textArea;
     private JScrollPane scroll;
     private String texto;
     public InterfasPrueba(){
@@ -325,7 +325,10 @@ private void guardarArchivo() {
     redoButton.setText(undoManager.getRedoPresentationName());
     undoButton.setEnabled(undoManager.canUndo());
     redoButton.setEnabled(undoManager.canRedo());
-  }
+  }  
+    
+   
+    
     
     
 }

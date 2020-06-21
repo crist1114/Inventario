@@ -82,7 +82,7 @@ public class Inventario {
     
     public boolean recargarProducto(String nombre, int cant){
         Producto p = productosAgotados.get(nombre);
-        if(this.dineroEnCaja - (cant*p.getPrecioFinal()) > 0){
+        if(this.dineroEnCaja - (cant*p.getPrecioFinal()) >= 0){
             p.setUnidadesDisp(p.getUnidadesDisp()+cant);
             this.dineroEnCaja -= (cant*p.getPrecioFinal());
             this.productosAgotados.remove(nombre);
@@ -101,9 +101,12 @@ public class Inventario {
     }
     
     public String estadisticas(){
-        String rta = "****************************************************\nLos productos mas vendidos son: \n";
+        String rta = "";
+        if(productos.size() != 1){
+        rta = "****************************************************\nLos productos mas vendidos son: \n";
         LinkedList<Producto> masVendido = this.getMasVendidos();
         LinkedList<Producto> menosVendidos = this.getMenosVendidos();
+        
             for (Producto p : masVendido) {
                 rta+=p.getNombre()+"\n";
             }
@@ -111,6 +114,7 @@ public class Inventario {
             for (Producto p : menosVendidos) {
                 rta+=p.getNombre()+"\n";
             }
+        } else rta += "Solo hay un Producto en el Almacen: \n" + productos.first().getNombre() + "\n";
         rta+="La cantidad total de dinero obtenido por las ventas es: \n"+this.getTotalDinero()+" $\n";
         rta+="El promedio de ventas de la tienda es: \n"+this.promedioVentas()+" $";
         return rta+="\n*********************************************************";
