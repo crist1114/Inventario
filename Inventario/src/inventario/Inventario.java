@@ -5,13 +5,10 @@
  */
 package inventario;
 
-import java.awt.List;
 import java.util.Collections;
-import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 /**

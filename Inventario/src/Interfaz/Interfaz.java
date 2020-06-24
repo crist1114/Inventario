@@ -436,6 +436,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
         Productos p = new Productos(i.getProductos());
         p.setVisible(true);
+        p.setLocation(200, 100);
     }//GEN-LAST:event_btnProductosActionPerformed
     private void soloNumeros(java.awt.event.KeyEvent evt){
         char presion = evt.getKeyChar();
